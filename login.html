@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+
+<body>
+   <form id="form">
+       <input id ="email"type="text" placeholder="Enter Email id">
+       <input id="mobile" type="number" placeholder="Enter Mobile">
+       <input id="password" type="number" placeholder="Enter Password">
+       <input type="submit">
+   </form>
+
+</body>
+</html>
+
+<style>
+    input{
+        margin: auto;
+        display: grid;
+        padding: 20px;
+        margin-bottom: 20px;
+    }
+</style>
+
+<script>
+  
+    var user=JSON.parse(localStorage.getItem("user"));
+
+    document.querySelector("#form").addEventListener("submit",function(event){
+        
+        event.preventDefault();
+
+        var data={
+            email:form.email.value,
+            mobile:form.mobile.value,
+            password:form.password.value,
+        }
+
+        if(user === null){
+            alert("please create account");
+        }
+       else if(user.email==data.email && user.mobile==data.mobile && user.password==data.password){
+            alert("sign in sucessful");
+            localStorage.setItem("signin",JSON.stringify(user))
+            window.location.href="men.html"
+        }
+        else{
+            alert("Doesn't Exist")
+        }
+  
+    })
+
+
+</script>
